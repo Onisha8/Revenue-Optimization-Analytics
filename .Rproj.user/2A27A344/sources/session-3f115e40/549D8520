@@ -1,0 +1,27 @@
+{
+    "id": "549D8520",
+    "path": "D:/Practice/Revenue-Optimization-Analytics/scripts/00_setup.R",
+    "project_path": "scripts/00_setup.R",
+    "type": "r_source",
+    "hash": "1199091891",
+    "contents": "",
+    "dirty": false,
+    "created": 1772128698738.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "93,0",
+        "scrollLine": "67"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1772128726,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1772128726021,
+    "read_only": false,
+    "read_only_alternatives": []
+}
