@@ -1,13 +1,20 @@
 source("scripts/00_setup.R")
 
-# 1) Load processed data (single source of truth)
-retail <- readr::read_csv(file.path(data_processed, "retail_features.csv"))
+# 1) Load processed data
+retail <- readr::read_csv(file.path(data_processed, "retail_features.csv")) %>%
+  dplyr::mutate(invoice_date = lubridate::as_datetime(invoice_date))
 
 # 2) Quick sanity checks
 cat("Rows:", nrow(retail), "\n")
 cat("Customers:", dplyr::n_distinct(retail$customer_id), "\n")
 cat("Invoices:", dplyr::n_distinct(retail$invoice), "\n")
-cat("Date range:", min(retail$invoice_date), "to", max(retail$invoice_date), "\n")
+cat(
+  "Date range:",
+  format(min(retail$invoice_date), "%Y-%m-%d %H:%M:%S"),
+  "to",
+  format(max(retail$invoice_date), "%Y-%m-%d %H:%M:%S"),
+  "\n"
+)
 
 # 3) KPI Summary (overall)
 kpi_overall <- retail %>%
@@ -126,4 +133,4 @@ ggplot2::ggsave(
   height = 5
 )
 
-cat("Step 3 complete: outputs saved to outputs/tables and outputs/figures\n")
+cat("Outputs saved to outputs/tables and outputs/figures\n")

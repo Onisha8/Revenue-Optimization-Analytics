@@ -14,7 +14,7 @@ retail_features <- retail_raw %>%
   dplyr::filter(!stringr::str_starts(invoice, "C")) %>%  # remove cancellations
   dplyr::filter(quantity > 0, price > 0) %>%     # remove invalid values
   dplyr::mutate(
-    invoice_date = as.POSIXct(invoice_date, tz = "UTC"),
+    invoice_date = lubridate::as_datetime(invoice_date),
     revenue = quantity * price,
     month_year = lubridate::floor_date(invoice_date, "month")
   )
