@@ -1,32 +1,22 @@
-############################################################
 # Project: Revenue Optimization & Customer Behavior Analytics
 # File: 00_setup.R
 # Purpose: Initialize reproducible analytical environment
-############################################################
 
-# -------------------------------
+
 # 1. Clear Environment
-# -------------------------------
 rm(list = ls())
 gc()
 
-# -------------------------------
 # 2. Global Options
-# -------------------------------
 options(
   scipen = 999,        # disable scientific notation
   stringsAsFactors = FALSE
 )
 
-# -------------------------------
 # 3. Set Random Seed
-# -------------------------------
 set.seed(1234)
 
-# -------------------------------
 # 4. Load Required Packages
-# -------------------------------
-
 required_packages <- c(
   "tidyverse",
   "lubridate",
@@ -52,10 +42,7 @@ for(pkg in required_packages){
 # Load libraries
 lapply(required_packages, library, character.only = TRUE)
 
-# -------------------------------
 # 5. Define Project Paths
-# -------------------------------
-
 project_root <- here::here()
 
 data_raw <- file.path(project_root, "data", "raw")
@@ -65,10 +52,7 @@ scripts_path <- file.path(project_root, "scripts")
 output_path <- file.path(project_root, "outputs")
 reports_path <- file.path(project_root, "reports")
 
-# -------------------------------
 # 6. Create Missing Folders
-# -------------------------------
-
 dirs <- c(
   data_processed,
   output_path,
@@ -81,13 +65,7 @@ for(d in dirs){
   }
 }
 
-# -------------------------------
 # 7. Session Information
-# -------------------------------
 cat("Environment successfully initialized\n")
 cat("Project Root:", project_root, "\n")
 cat("Loaded Packages:", paste(required_packages, collapse=", "), "\n")
-
-############################################################
-# END OF SETUP
-############################################################

@@ -32,4 +32,14 @@ readr::write_csv(
 )
 
 # 5. Diagnostic Plot 
+png(
+  filename = file.path(output_path, "figures", "regression_diagnostics.png"),
+  width = 1200,
+  height = 800,
+  type = "cairo"
+)
+
+par(mfrow = c(2, 2))
 plot(model)
+
+dev.off()
