@@ -126,6 +126,7 @@ This project was implemented using:
 ---
 
 ## Project Structure
+```
 Revenue-Optimization-Analytics
 │
 ├── data
@@ -147,22 +148,18 @@ Revenue-Optimization-Analytics
 ├── business_problem.md
 ├── kpi_dictionary.md
 └── README.md
-
+```
 
 ---
 
 ## How to Run the Project
-
-Clone the repository
-
+1. Clone the repository
 git clone https://github.com/Onisha8/Revenue-Optimization-Analytics
 
-Install required R packages
-
+2. Install required R packages
 install.packages(c("tidyverse","lubridate","broom","janitor"))
 
-Run scripts in order:
-
+3. Run scripts in order:
 scripts/01_data_cleaning.R  
 scripts/02_eda_descriptive.R  
 scripts/03_confidence_intervals.R  
