@@ -48,29 +48,29 @@ This project addresses several business questions:
 
 The project follows a typical data analytics pipeline:
 
-### 1 Data Cleaning & Feature Engineering
+### 1. Data Cleaning & Feature Engineering
 - Removed cancelled transactions
 - Filtered missing customer IDs
 - Created revenue and time-based features
 
-### 2 Exploratory Data Analysis
+### 2. Exploratory Data Analysis
 - Monthly revenue trends
 - Order value distribution
 - Top countries and products by revenue
 
-### 3 Confidence Interval Estimation
+### 3. Confidence Interval Estimation
 Estimated the true average order value using 95% confidence intervals.
 
-### 4 Hypothesis Testing
+### 4. Hypothesis Testing
 Tested whether spending behavior differs between UK and international customers.
 
-### 5 Regression Analysis
+### 5. Regression Analysis
 Identified key drivers influencing order value.
 
-### 6 Logistic Regression
+### 6. Logistic Regression
 Modeled the probability that a customer becomes a repeat buyer, using first-order value, time since first purchase, and product variety as predictors (customers with insufficient observation time were excluded — see Limitations).
 
-### 7 ANOVA
+### 7. ANOVA
 Evaluated whether order value differs significantly across countries.
 
 ---
@@ -216,5 +216,6 @@ Running script 01 regenerates `data/processed/retail_features.csv`, which all la
 ## Author
 
 **Onisha Gangwal**
+
 Master’s Student – Artificial Intelligence & Business Analytics  
 University of South Florida
