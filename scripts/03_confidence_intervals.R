@@ -1,4 +1,4 @@
-source("scripts/00_setup.R")
+source("00_setup.R")
 
 # 1. Load data
 retail <- readr::read_csv(

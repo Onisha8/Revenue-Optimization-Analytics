@@ -1,4 +1,4 @@
-source("scripts/00_setup.R")
+source("00_setup.R")
 
 # 1) Load processed data
 retail <- readr::read_csv(file.path(data_processed, "retail_features.csv")) %>%

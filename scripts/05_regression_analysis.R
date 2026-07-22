@@ -1,5 +1,5 @@
 # 1. Load setup and data
-source("scripts/00_setup.R")
+source("00_setup.R")
 
 retail <- readr::read_csv(
   file.path(data_processed, "retail_features.csv")
@@ -15,6 +15,23 @@ invoice_data <- retail %>%
     avg_price = mean(price),
     .groups = "drop"
   )
+
+# Keep only countries with enough invoices for stable regression estimates
+min_invoices <- 30
+
+country_counts <- invoice_data %>%
+  dplyr::count(country, name = "n_invoices")
+
+valid_countries <- country_counts %>%
+  dplyr::filter(n_invoices >= min_invoices) %>%
+  dplyr::pull(country)
+
+n_excluded <- nrow(country_counts) - length(valid_countries)
+cat("Excluding", n_excluded, "low-volume countries (fewer than",
+    min_invoices, "invoices) from regression\n")
+
+invoice_data <- invoice_data %>%
+  dplyr::filter(country %in% valid_countries)
 
 # 3. Fit a Regression Model
 # Order Value=f(total items, avg price, country)

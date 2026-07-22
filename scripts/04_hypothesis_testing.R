@@ -1,4 +1,4 @@
-source("scripts/00_setup.R")
+source("00_setup.R")
 
 # 1. Load data
 retail <- readr::read_csv(
@@ -24,15 +24,22 @@ invoice_values <- invoice_values %>%
   )
 
 # 4. Visual Check
-ggplot(invoice_values,
-       aes(x = region_group,
-           y = order_value)) +
+p_ht <- ggplot(invoice_values,
+               aes(x = region_group,
+                   y = order_value)) +
   geom_boxplot() +
   labs(
     title = "Order Value Comparison: UK vs Non-UK",
     x = "Region",
     y = "Order Value"
   )
+
+ggsave(
+  filename = file.path(output_path, "figures", "uk_vs_nonuk_order_value.png"),
+  plot = p_ht,
+  width = 8,
+  height = 5
+)
 
 # 5. Two sample t-test
 test_result <- t.test(
@@ -56,7 +63,3 @@ write_csv(
             "tables",
             "hypothesis_test_uk_vs_nonuk.csv")
 )
-
-
-
-

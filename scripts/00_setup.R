@@ -27,7 +27,8 @@ required_packages <- c(
   "car",
   "MASS",
   "scales",
-  "patchwork"
+  "patchwork",
+  "here"
 )
 
 # Install missing packages automatically

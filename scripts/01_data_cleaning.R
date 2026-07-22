@@ -1,4 +1,4 @@
-source("scripts/00_setup.R")
+source("00_setup.R")
 library(readxl)
 
 # 1) Load
