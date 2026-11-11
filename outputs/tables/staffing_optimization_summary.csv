@@ -1,0 +1,5 @@
+scenario,policy,status,full_time_staff,part_time_staff,paid_hours,required_hours,daily_cost,savings_vs_full_time_only,idle_hours
+Typical (all months),Full-time only,Optimal,8,0,64,49,1152,0,15
+Typical (all months),Full + part-time,Optimal,4,6,56,49,912,240,7
+Peak (November),Full-time only,Optimal,11,0,88,74,1584,0,14
+Peak (November),Full + part-time,Optimal,6,8,80,74,1312,272,6

@@ -1,11 +1,17 @@
 source("00_setup.R")
 library(readxl)
 
-# 1) Load
-retail_raw <- read_excel(
-  file.path(data_raw, "online_retail_II.xlsx"),
-  sheet = "Year 2010-2011"
-)
+# 1) Load both sheets (Dec 2009 - Dec 2011)
+# The sheets overlap on 1-9 Dec 2010, so that window is taken from the
+# 2010-2011 sheet only to avoid double counting invoices
+raw_file <- file.path(data_raw, "online_retail_II.xlsx")
+
+retail_2009_2010 <- read_excel(raw_file, sheet = "Year 2009-2010") %>%
+  dplyr::filter(InvoiceDate < as.POSIXct("2010-12-01", tz = "UTC"))
+
+retail_2010_2011 <- read_excel(raw_file, sheet = "Year 2010-2011")
+
+retail_raw <- dplyr::bind_rows(retail_2009_2010, retail_2010_2011)
 
 # 2) Clean + business rules + features (single pipeline)
 retail_features <- retail_raw %>%
